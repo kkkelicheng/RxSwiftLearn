@@ -94,7 +94,19 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="QNj-Jq-IdR" id="qiO-U1-ZGI">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="87"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Replay" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Zs-La-2bS">
+                                                    <rect key="frame" x="35" y="33" width="52" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="gCj-Ie-HIo" kind="show" id="rnf-6o-il4"/>
+                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -107,7 +119,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yem-8C-D6U" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1561" y="-974"/>
+            <point key="canvasLocation" x="1560.8695652173915" y="-974.33035714285711"/>
         </scene>
         <!--简单验证-->
         <scene sceneID="S2V-sl-r5W">
@@ -248,6 +260,22 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VwV-df-h12" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2544.9275362318845" y="-592.63392857142856"/>
+        </scene>
+        <!--Replay Demo Controller-->
+        <scene sceneID="ifY-5K-S9z">
+            <objects>
+                <viewController id="gCj-Ie-HIo" customClass="ReplayDemoController" customModule="RxLearn" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="wed-up-l9k">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="720"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="fcV-xo-N0H"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="3VO-0Y-zAd"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QmZ-y2-rhI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2549" y="28"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Gpj-iV-zoO">
