@@ -67,7 +67,7 @@ class DriverDemoController: UIViewController {
         let queryResults = query.rx.text.throttle(RxTimeInterval.microseconds(300), scheduler: MainScheduler.instance)
         let result = queryResults.flatMap {
             //  仅仅提供发生错误时的备选返回值
-            self.fetchAutoCompleteItems($0).asDriver(onErrorJustReturn: "检测到了错误事件")
+            return self.fetchAutoCompleteItems($0).asDriver(onErrorJustReturn: "检测到了错误事件")
         }
         
         //drive()方法绑定UI
@@ -79,6 +79,13 @@ class DriverDemoController: UIViewController {
         result.subscribe(onNext: { (element) in
             print("订阅到 \(element)----\(Thread.current)")
         }).disposed(by: disposeBag)
+        
+        
+        let driver = query.rx.text.asDriver().flatMap {
+            return self.fetchAutoCompleteItems($0).asDriver(onErrorJustReturn: "123")
+        }
+        driver.drive(self.countLabel1.rx.text).disposed(by: disposeBag)
+        
     }
     
     
@@ -88,9 +95,9 @@ class DriverDemoController: UIViewController {
     
     
     
-    func fetchAutoCompleteItems(_ inputText:String?) -> Observable<Any>{
+    func fetchAutoCompleteItems(_ inputText:String?) -> Observable<String>{
         print("开始请求网络 \(Thread.current)")
-        return Observable<Any>.create({ (ob) -> Disposable in
+        return Observable<String>.create({ (ob) -> Disposable in
             if inputText == "123456" {
                 ob.onError(NSError.init(domain: "com.henry", code: 10010, userInfo: nil))
             }
